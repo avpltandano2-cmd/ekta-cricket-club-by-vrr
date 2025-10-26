@@ -1,0 +1,19 @@
+workflows:
+  android-workflow:
+    name: Ekta Cricket Club Build
+    max_build_duration: 30
+    environment:
+      vars:
+        GRADLE_TASK: "assembleDebug"
+    scripts:
+      - name: Build Android App
+        script: |
+          chmod +x gradlew
+          ./gradlew $GRADLE_TASK
+    artifacts:
+      - app/build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - avpltandano2@gmail.com
+
